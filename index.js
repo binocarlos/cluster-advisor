@@ -33,7 +33,7 @@ function stats(backends, done){
 
 			async.forEach(results.docker.subcontainers, function(container, nextContainer){
 				cbackend.container(container.name, function(err, results){
-					if(err) return nextContainer(err)
+					if(err) return nextContainer()
 					var stat = results.stats[results.stats.length-1]
 
 					server.containers++
@@ -63,9 +63,14 @@ function ps(backends, done){
 			if(!docker || !docker.subcontainers){
 				return nextBackend('no subcontainers found')
 			}
-			async.map(docker.subcontainers, function(container, nextContainer){
-				cbackend.container(container.name, nextContainer)
-			}, function(err, containers){
+			var containers = []
+			async.forEach(docker.subcontainers, function(container, nextContainer){
+				cbackend.container(container.name, function(err, container){
+					if(err) return nextContainer()
+					containers.push(container)
+					nextContainer()
+				})
+			}, function(err){
 
 				if(err) return nextBackend(err)
 				nextBackend(null, {
