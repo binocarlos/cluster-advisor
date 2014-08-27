@@ -22,7 +22,8 @@ function stats(backends, done){
 
 			var server = {
 				backend:backend,
-				host:results.host,
+				cores:results.host.num_cores,
+				memorytotal:results.host.memory_capacity,
 				containers:0,
 				memoryused:0,
 				load:0,

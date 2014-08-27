@@ -14,8 +14,16 @@ tape('get stats for the cluster', function(t){
 			t.end()
 			return
 		}
-
-		console.dir(stats)
+		t.equal(stats.length, 3, '3 results')
+		t.equal(stats[0].backend, '192.168.8.120:8085', 'backend')
+		t.equal(stats[0].cores, 1, 'cores')
+		t.equal(typeof(stats[0].memorytotal), 'number', 'memory total')
+		t.equal(typeof(stats[0].containers), 'number', 'containers')
+		t.equal(typeof(stats[0].memoryused), 'number', 'memoryused')
+		t.equal(typeof(stats[0].load), 'number', 'load')
+		t.equal(typeof(stats[0].rx), 'number', 'rx')
+		t.equal(typeof(stats[0].tx), 'number', 'tx')
+		
 		t.end()
 	})
 })

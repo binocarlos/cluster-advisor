@@ -41,7 +41,8 @@ Map the array of endpoints onto an array container information about each machin
 Each array entry is an object with the following properties:
 
  * backend - the backend address used
- * host - cadvisor host information
+ * cores - the number of cores the host has
+ * memorytotal - the total memory capacity of the host
  * containers - the number of containers running on the host
  * memoryused - the total amount of memory used by containers
  * rx_bytes - the total number of bytes received by containers
@@ -49,6 +50,11 @@ Each array entry is an object with the following properties:
  * load - the total load across all containers
 
 These values are simply the SUM of each of the individual container values
+
+The `host` property is useful to determining how much free memory is left because it provides these properties:
+
+ * num_cores
+ * memory_capacity
 
 #### `cluster.ps(function(err, arr){})`
 
