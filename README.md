@@ -1,6 +1,6 @@
 ## cluster-advisor
 
-Aggregate multiple cadvisor endpoints and choose the least busy server
+Aggregate multiple cadvisor endpoints
 
 ## install
 

@@ -1,7 +1,7 @@
 {
   "name": "cluster-advisor",
   "version": "0.1.0",
-  "description": "Aggregate multiple cadvisor endpoints and choose the least busy server",
+  "description": "Aggregate multiple cadvisor endpoints",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
