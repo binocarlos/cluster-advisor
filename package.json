@@ -1,0 +1,31 @@
+{
+  "name": "cluster-advisor",
+  "version": "0.0.1",
+  "description": "Aggregate multiple cadvisor endpoints and choose the least busy server",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binocarlos/cluster-advisor.git"
+  },
+  "keywords": [
+    "cadvisor",
+    "cluster",
+    "metrics"
+  ],
+  "author": "Kai Davenport",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binocarlos/cluster-advisor/issues"
+  },
+  "homepage": "https://github.com/binocarlos/cluster-advisor",
+  "dependencies": {
+    "async": "^0.9.0",
+    "cadvisor": "^0.1.2"
+  },
+  "devDependencies": {
+    "tape": "^2.14.0"
+  }
+}
