@@ -27,3 +27,18 @@ tape('get stats for the cluster', function(t){
 		t.end()
 	})
 })
+
+tape('get ps for the cluster', function(t){
+	cluster.ps(function(err, list){
+		if(err){
+			t.fail(err, 'load ps')
+			t.end()
+			return
+		}
+		t.equal(list.length, 3, '3 results')
+		t.equal(list[0].backend, '192.168.8.120:8085', 'backend')
+		typeof(list[0].containers[0].spec.memory.limit, 'number', 'container spec')
+		
+		t.end()
+	})
+})
