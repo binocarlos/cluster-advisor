@@ -38,7 +38,7 @@ function stats(backends, done){
 
 					server.containers++
 					server.memoryused += stat.memory.usage
-					server.load += stat.cpu.load
+					server.load += stat.cpu.load_average
 					server.rx += stat.network.rx_bytes
 					server.tx += stat.network.tx_bytes
 
