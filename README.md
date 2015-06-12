@@ -21,7 +21,7 @@ var cluster = advisor([
 ])
 
 // load the stats which contains information about each machine
-cluster(function(err, stats){
+cluster.stats(function(err, stats){
 
 	// stats is an array each element representing a machine
 
